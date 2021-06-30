@@ -9,6 +9,10 @@ const cap = 100;
 
 let comments = [];
 
+const scroll = () => {
+    chatElement.scrollTop = chatElement.scrollHeight;
+};
+
 const renderChat = () => {
     chatElement.innerHTML = "";
     const renderableComments = [];
@@ -42,7 +46,7 @@ const renderChat = () => {
         commentElement.appendChild(bodyElement);
         chatElement.appendChild(commentElement);
     }
-    chatElement.scrollTop = chatElement.scrollHeight;
+    scroll();
 };
 
 vodElement.ontimeupdate = () => {
@@ -52,7 +56,11 @@ vodElement.ontimeupdate = () => {
 vodElement.src = mp4;
 
 chat.addEventListener("scroll", () => {
-    chatElement.scrollTop = chatElement.scrollHeight;
+    scroll();
+});
+
+addEventListener("resize", () => {
+    scroll();
 });
 
 fetch(json).then((res) => {
