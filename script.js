@@ -24,6 +24,7 @@ const renderChat = () => {
 
         const displayNameElement = document.createElement("span");
         displayNameElement.innerText = comment.commenter.display_name;
+        displayNameElement.style.color = comment.message.user_color;
         displayNameElement.classList.add("display-name");
 
         const bodyElement = document.createElement("span");
