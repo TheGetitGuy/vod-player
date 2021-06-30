@@ -31,7 +31,14 @@ const renderChat = () => {
         bodyElement.innerText = comment.message.body;
         bodyElement.classList.add("body");
 
+        const timeElement = document.createElement("span");
+        const hours = Math.floor(comment.content_offset_seconds / 60 / 60);
+        const minutes = Math.floor(comment.content_offset_seconds / 60);
+        timeElement.innerText = `${hours}:${`${(minutes - hours * 60)}`.padStart(2, 0)}`;
+        timeElement.classList.add("time");
+
         commentElement.appendChild(displayNameElement);
+        bodyElement.prepend(timeElement);
         commentElement.appendChild(bodyElement);
         chatElement.appendChild(commentElement);
     }
