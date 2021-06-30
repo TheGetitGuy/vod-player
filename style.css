@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+    display: flex;
+    overflow: hidden;
+}
+
+#vod {
+    width: 75vw;
+    height: 100vh;
+}
+
+#chat {
+    width: 25vw;
+    height: 100vh;
+}
