@@ -46,7 +46,7 @@ body {
 
 .time {
     color: rgb(100, 100, 100);
-    margin-right: .25em;
+    margin-right: .5em;
 }
 
 @media (max-aspect-ratio: 1/1) {
