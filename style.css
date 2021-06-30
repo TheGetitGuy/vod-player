@@ -1,5 +1,16 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 0;
+}
+
 body {
     background-color: black;
+    color: white;
     display: flex;
     overflow: hidden;
 }
@@ -10,6 +21,42 @@ body {
 }
 
 #chat {
-    width: 25vw;
-    height: 100vh;
+    font-family: sans-serif;
+    height: calc(100vh - 2em);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 1em;
+    user-select: none;
+    width: calc(25vw - 2em);
+}
+
+#chat>div:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+.display-name {
+    display: block;
+    font-weight: bold;
+    margin-right: 2em;
+}
+
+.body {
+    color: rgb(200, 200, 200);
+}
+
+@media (max-aspect-ratio: 1/1) {
+    body {
+        flex-direction: column;
+    }
+
+    #vod {
+        height: 32.5vh;
+        margin-bottom: 2.5vh;
+        width: 100vw;
+    }
+
+    #chat {
+        height: calc(65vh - 2em);
+        width: calc(100vw - 2em);
+    }
 }
