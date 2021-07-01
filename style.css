@@ -41,6 +41,7 @@ body {
 
 .body {
     color: rgb(200, 200, 200);
+    word-break: break-word;
 }
 
 .time {
