@@ -35,18 +35,17 @@ body {
 }
 
 .display-name {
-    display: block;
     font-weight: bold;
+    margin-right: .35em;
 }
 
 .body {
     color: rgb(200, 200, 200);
-    display: block;
 }
 
 .time {
     color: rgb(100, 100, 100);
-    margin-right: .5em;
+    margin-right: .35em;
 }
 
 @media (max-aspect-ratio: 1/1) {

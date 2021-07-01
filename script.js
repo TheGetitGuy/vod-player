@@ -24,7 +24,7 @@ const renderChat = () => {
     }
     renderableComments.splice(0, renderableComments.length - 100);
     for (const comment of renderableComments) {
-        const commentElement = document.createElement("div");
+        const commentElement = document.createElement("p");
 
         const displayNameElement = document.createElement("span");
         displayNameElement.innerText = comment.commenter.display_name;
@@ -41,8 +41,8 @@ const renderChat = () => {
         timeElement.innerText = `${hours}:${`${(minutes - hours * 60)}`.padStart(2, 0)}`;
         timeElement.classList.add("time");
 
+        commentElement.appendChild(timeElement);
         commentElement.appendChild(displayNameElement);
-        bodyElement.prepend(timeElement);
         commentElement.appendChild(bodyElement);
         chatElement.appendChild(commentElement);
     }
