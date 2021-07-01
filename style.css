@@ -36,6 +36,9 @@ body {
 
 .display-name {
     font-weight: bold;
+}
+
+.divider {
     margin-right: .35em;
 }
 

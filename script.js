@@ -26,23 +26,29 @@ const renderChat = () => {
     for (const comment of renderableComments) {
         const commentElement = document.createElement("p");
 
+        const timeElement = document.createElement("span");
+        const hours = Math.floor(comment.content_offset_seconds / 60 / 60);
+        const minutes = Math.floor(comment.content_offset_seconds / 60);
+        const seconds = Math.floor(comment.content_offset_seconds);
+        timeElement.innerText = `${hours}:${`${(minutes - hours * 60)}`.padStart(2, 0)}:${`${(seconds - minutes * 60)}`.padStart(2, 0)}`;
+        timeElement.classList.add("time");
+
         const displayNameElement = document.createElement("span");
         displayNameElement.innerText = comment.commenter.display_name;
         displayNameElement.style.color = comment.message.user_color;
         displayNameElement.classList.add("display-name");
 
+        const dividerElement = document.createElement("span");
+        dividerElement.innerText = ":";
+        dividerElement.classList.add("divider");
+        
         const bodyElement = document.createElement("span");
         bodyElement.innerText = comment.message.body;
         bodyElement.classList.add("body");
 
-        const timeElement = document.createElement("span");
-        const hours = Math.floor(comment.content_offset_seconds / 60 / 60);
-        const minutes = Math.floor(comment.content_offset_seconds / 60);
-        timeElement.innerText = `${hours}:${`${(minutes - hours * 60)}`.padStart(2, 0)}`;
-        timeElement.classList.add("time");
-
         commentElement.appendChild(timeElement);
         commentElement.appendChild(displayNameElement);
+        commentElement.appendChild(dividerElement);
         commentElement.appendChild(bodyElement);
         chatElement.appendChild(commentElement);
     }
