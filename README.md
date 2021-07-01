@@ -1,6 +1,6 @@
 # VOD Player (vodplayer.net)
 
-I built this VOD player because I needed a player for my twitch channel twitch.tv/retrommo which could render archived Twitch chat of JSON format alongside an MP4.
+I built this VOD player because I needed a player for my twitch channel (https://twitch.tv/retrommo) which could render archived Twitch chat of JSON format alongside an MP4.
 
 This project uses vanilla HTML/CSS/JS and is hosted on GitHub Pages.
 
