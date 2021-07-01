@@ -8,6 +8,6 @@ To use this tool, you need to self-host the MP4 file of your VOD and the JSON fi
 - You can use https://github.com/TwitchRecover/TwitchRecover combined with https://github.com/videolan/vlc to download an MP4 of a VOD.
 - You can use https://github.com/PetterKraabol/Twitch-Chat-Downloader to download a VOD's chat JSON file.
 
-The URL of the MP4 and JSON files are included in the query string of the URL.
+The URL of the MP4 and JSON files are included in the query string of the URL. The following example also happens to be the VOD of me building the first release of this project:
 
-Example: https://vodplayer.net/?mp4=https://retrommo-vods.s3.us-east-2.amazonaws.com/2021-06-29-3.mp4&json=https://retrommo-vods.s3.us-east-2.amazonaws.com/2021-06-29-3.json
+https://vodplayer.net/?mp4=https://retrommo-vods.s3.us-east-2.amazonaws.com/2021-06-29-2.mp4&json=https://retrommo-vods.s3.us-east-2.amazonaws.com/2021-06-29-2.json
