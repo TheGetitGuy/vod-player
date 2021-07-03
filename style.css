@@ -15,6 +15,21 @@ body {
     overflow: hidden;
 }
 
+#home {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 10vh;
+    background-color: grey;
+}
+
+#home form {
+    display: flex;
+    flex-direction: column;
+}
+
 #vod {
     width: 75vw;
     height: 100vh;
