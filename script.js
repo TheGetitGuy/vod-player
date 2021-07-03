@@ -4,7 +4,6 @@ const r = () => {
     const json = url.searchParams.get("json");
 
     if (!mp4 || !json) {
-        alert("Invalid URL");
         return;
     }
 
@@ -82,6 +81,8 @@ const r = () => {
         });
     });
 
+    const home = document.getElementById("home");
+    home.style = "display: none;"
 };
 
 r();
