@@ -75,8 +75,7 @@ const r = () => {
                     const emoteElement = document.createElement("img")
                     emoteElement.src = (`https://static-cdn.jtvnw.net/emoticons/v1/${fragment.emoticon.emoticon_id}/1.0`)
                     emoteElement.alt = fragment.text
-                    emoteElement.classList.add("emoticon")
-                    fragmentElement.innerText = fragment.text;
+                    emoteElement.classList.add("emoticon") 
                     fragmentElement.classList.add("fragment");
                     fragmentElement.appendChild(emoteElement)
                     fragmentsToAppend.push(fragmentElement);
