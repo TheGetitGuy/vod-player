@@ -20,7 +20,7 @@ const r = () => {
         //then setting state so you can send the url after seekedorupdated
         let params = url.searchParams;
         let currentMins = Math.floor(vodElement.currentTime/60);
-        let currentSecs = (vodElement.currentTime%60);
+        let currentSecs = Math.round(vodElement.currentTime%60);
         params.set('mins', currentMins)
         params.set('secs', currentSecs)
 
