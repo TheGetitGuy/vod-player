@@ -47,7 +47,7 @@ const r = () => {
         renderableComments.splice(0, renderableComments.length - cap);
         for (const comment of renderableComments) {
             const commentElement = document.createElement("p");
-
+            
             const timeElement = document.createElement("span");
             const hours = Math.floor(comment.content_offset_seconds / 60 / 60);
             const minutes = Math.floor(comment.content_offset_seconds / 60);
@@ -63,15 +63,29 @@ const r = () => {
             const dividerElement = document.createElement("span");
             dividerElement.innerText = ":";
             dividerElement.classList.add("divider");
-
-            const bodyElement = document.createElement("span");
-            bodyElement.innerText = comment.message.body;
-            bodyElement.classList.add("body");
-
+            const fragmentsToAppend = []
+            for (fragment of comment.message.fragments){
+                const fragmentElement = document.createElement("span");
+                if (!('emoticon' in fragment)){
+                    fragmentElement.innerText = fragment.text;
+                    fragmentElement.classList.add("fragment");
+                    fragmentsToAppend.push(fragmentElement)
+            } else { 
+                    //build and append the Emotes
+                    const emoteElement = document.createElement("img")
+                    emoteElement.src = (`https://static-cdn.jtvnw.net/emoticons/v1/${fragment.emoticon.emoticon_id}/1.0`)
+                    emoteElement.alt = fragment.text
+                    emoteElement.classList.add("emoticon")
+                    fragmentElement.innerText = fragment.text;
+                    fragmentElement.classList.add("fragment");
+                    fragmentElement.appendChild(emoteElement)
+                    fragmentsToAppend.push(fragmentElement);
+                }
+            }
             commentElement.appendChild(timeElement);
             commentElement.appendChild(displayNameElement);
             commentElement.appendChild(dividerElement);
-            commentElement.appendChild(bodyElement);
+            commentElement.appendChild(...fragmentsToAppend);
             chatElement.appendChild(commentElement);
         }
         scroll();

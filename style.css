@@ -48,7 +48,6 @@ body {
 #chat>div:not(:last-child) {
     margin-bottom: 1em;
 }
-
 .display-name {
     font-weight: bold;
 }
@@ -57,9 +56,10 @@ body {
     margin-right: .35em;
 }
 
-.body {
+
+.fragment {
     color: rgb(200, 200, 200);
-    word-break: break-word;
+    word-break: break-word; 
 }
 
 .time {
