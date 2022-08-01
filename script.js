@@ -5,7 +5,7 @@ const r = () => {
     const json = url.searchParams.get("json");
     const timeMins = url.searchParams.get("mins");
     const timeSecs = url.searchParams.get("secs");
-    
+
     if (!mp4 || !json) {
         return;
     }
@@ -13,18 +13,18 @@ const r = () => {
     const vodElement = document.getElementById("vod");
     const chatElement = document.getElementById("chat");
 
-    vodElement.currentTime = (Math.floor(timeMins*60) + Math.floor(timeSecs));
+    vodElement.currentTime = (Math.floor(timeMins * 60) + Math.floor(timeSecs));
 
-    const changeUrlForTimeStamp = () =>{
+    const changeUrlForTimeStamp = () => {
         //building the parameters for the timestamp
         //then setting state so you can send the url after seekedorupdated
         let params = url.searchParams;
-        let currentMins = Math.floor(vodElement.currentTime/60);
-        let currentSecs = Math.round(vodElement.currentTime%60);
+        let currentMins = Math.floor(vodElement.currentTime / 60);
+        let currentSecs = Math.round(vodElement.currentTime % 60);
         params.set('mins', currentMins)
         params.set('secs', currentSecs)
 
-        history.replaceState(null,"", (url.origin+'?'+params.toString()))
+        history.replaceState(null, "", (url.origin + '?' + params.toString()))
     };
 
     const cap = 100; //The maximum comments
@@ -47,7 +47,7 @@ const r = () => {
         renderableComments.splice(0, renderableComments.length - cap);
         for (const comment of renderableComments) {
             const commentElement = document.createElement("p");
-            
+
             const timeElement = document.createElement("span");
             const hours = Math.floor(comment.content_offset_seconds / 60 / 60);
             const minutes = Math.floor(comment.content_offset_seconds / 60);
@@ -64,18 +64,18 @@ const r = () => {
             dividerElement.innerText = ":";
             dividerElement.classList.add("divider");
             const fragmentsToAppend = []
-            for (fragment of comment.message.fragments){
+            for (fragment of comment.message.fragments) {
                 const fragmentElement = document.createElement("span");
-                if (!('emoticon' in fragment)){
+                if (!('emoticon' in fragment)) {
                     fragmentElement.innerText = fragment.text;
                     fragmentElement.classList.add("fragment");
                     fragmentsToAppend.push(fragmentElement)
-            } else { 
+                } else {
                     //build and append the Emotes
                     const emoteElement = document.createElement("img")
                     emoteElement.src = (`https://static-cdn.jtvnw.net/emoticons/v1/${fragment.emoticon.emoticon_id}/1.0`)
                     emoteElement.alt = fragment.text
-                    emoteElement.classList.add("emoticon") 
+                    emoteElement.classList.add("emoticon")
                     fragmentElement.classList.add("fragment");
                     fragmentElement.appendChild(emoteElement)
                     fragmentsToAppend.push(fragmentElement);
