@@ -6,9 +6,11 @@ const r = () => {
     const timeMins = url.searchParams.get("mins");
     const timeSecs = url.searchParams.get("secs");
 
-    if (!mp4 || !json) {
+    if (!mp4) {
         return;
     }
+
+    const hasJSON = (json !== null && json !== "");
 
     const vodElement = document.getElementById("vod");
     const chatElement = document.getElementById("chat");
@@ -91,7 +93,9 @@ const r = () => {
     };
 
     vodElement.ontimeupdate = () => {
-        renderChat();
+        if (hasJSON) {
+            renderChat();
+        }
         changeUrlForTimeStamp(); // Update constantly
     };
     vodElement.onseeked = () => {
@@ -108,12 +112,14 @@ const r = () => {
         scroll();
     });
 
-    fetch(json).then((res) => {
-        res.json().then((data) => {
-            comments = data.comments;
-            renderChat();
+    if (hasJSON) {
+        fetch(json).then((res) => {
+            res.json().then((data) => {
+                comments = data.comments;
+                renderChat();
+            });
         });
-    });
+    }
 
     const home = document.getElementById("home");
     home.style = "display: none;"
