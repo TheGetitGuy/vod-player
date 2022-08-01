@@ -5,6 +5,7 @@ const r = () => {
     const json = url.searchParams.get("json");
     const timeMins = url.searchParams.get("mins");
     const timeSecs = url.searchParams.get("secs");
+    const autoplay = url.searchParams.get("autoplay");
 
     if (!mp4 || !json) {
         return;
@@ -96,6 +97,12 @@ const r = () => {
     };
     vodElement.onseeked = () => {
         changeUrlForTimeStamp();  // Update only when seeked, up to evan
+    }
+
+    vodElement.onloadeddata = () => {
+        if (autoplay) {
+            vodElement.play();
+        }
     }
 
     vodElement.src = mp4;
