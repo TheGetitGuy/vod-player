@@ -36,13 +36,12 @@ const r = () => {
         chatElement.scrollTop = chatElement.scrollHeight;
     };
     
-    const copyUrl = () =>{
-        let urlWithoutTime  = document.URL.slice(0,document.URL.indexOf('&min'));
+    const copyUrl = () => {
+        const urlWithoutTime  = document.URL.slice(0 ,document.URL.indexOf('&min'));
         navigator.clipboard.writeText(urlWithoutTime)
         
     }
-    const copyUrlWithTime = () =>{
-        
+    const copyUrlWithTime = () => {
         navigator.clipboard.writeText(document.URL)
     }
 
@@ -94,7 +93,7 @@ const r = () => {
                 const fragmentElement = document.createElement("span");
                 fragmentElement.innerText = fragment.text;
                 fragmentElement.classList.add("fragment");
-                if (('emoticon' in fragment)) {
+                if ("emoticon" in fragment) {
                     //build and append the Emotes
                     const emoteElement = document.createElement("img")
                     emoteElement.src = (`https://static-cdn.jtvnw.net/emoticons/v1/${fragment.emoticon.emoticon_id}/1.0`)
@@ -104,8 +103,8 @@ const r = () => {
                 }
 
                 const commentMsgId = comment.message.user_notice_params;
-                if(commentMsgId['msg-id'] != undefined){
-                    commentElement.classList.add('Highlighted')
+                if(commentMsgId["msg-id"] != undefined){
+                    commentElement.classList.add("Highlighted")
                 }
                 fragmentsToAppend.push(fragmentElement)
             }; 

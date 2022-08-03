@@ -48,6 +48,7 @@ body {
 #chat>div:not(:last-child) {
     margin-bottom: 1em;
 }
+
 .display-name {
     font-weight: bold;
 }
@@ -56,28 +57,30 @@ body {
     margin-right: .35em;
 }
 
-
-.fragment { 
+.fragment {
     color: rgb(200, 200, 200);
-    word-break: break-word; 
+    word-break: break-word;
 }
-.Highlighted{
+
+.Highlighted {
 
     position: relative;
-    left:5px;
-    background-color:rgb(70, 70, 70);
+    left: 5px;
+    background-color: rgb(70, 70, 70);
 }
-.Highlighted::before{
+
+.Highlighted::before {
     position: absolute;
-    display:inline-block;
-    content:'';
-    background-color:purple;
-    width:5px;
-    height:100%;
-    left:-5px;
+    display: inline-block;
+    content: "";
+    background-color: purple;
+    width: 5px;
+    height: 100%;
+    left: -5px;
 }
-.emoticon{
-    position:relative;
+
+.emoticon {
+    position: relative;
     bottom: -8px;
 }
 
@@ -85,12 +88,13 @@ body {
     color: rgb(100, 100, 100);
     margin-right: .35em;
 }
-.shareDropDown{ 
+
+.shareDropDown {
     position: relative;
     background-color: rgb(85, 85, 85);
     margin-inline-start: 10px;
-    width:4em;
-    height:2em;
+    width: 4em;
+    height: 2em;
     text-align: center;
     line-height: 2em;
     z-index: 1022;
@@ -98,28 +102,32 @@ body {
     border-radius: 5px;
     border-style: none;
 }
-.dropDownOptions{
+
+.dropDownOptions {
     position: absolute;
-    bottom:0;
-    left:100%;
+    bottom: 0;
+    left: 100%;
     background-color: rgb(150, 150, 150);
-    width:7em;
+    width: 7em;
     height: 2em;
     display: none;
 }
-.dropDownOptions:hover{
+
+.dropDownOptions:hover {
     filter: brightness(1.5);
     display: block;
     cursor: pointer;
 }
-.dropDownOptions:last-child{
+
+.dropDownOptions:last-child {
     background-color: rgb(85, 85, 85);
-    bottom:-100%;
-    border-bottom-left-radius:  10px;
-    border-bottom-right-radius:  10px;
+    bottom: -100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-.shareDropDown:hover > .dropDownOptions{
-    display:block;
+
+.shareDropDown:hover>.dropDownOptions {
+    display: block;
 }
 
 @media (max-aspect-ratio: 1/1) {
