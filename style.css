@@ -57,9 +57,28 @@ body {
 }
 
 
-.fragment {
+.fragment { 
     color: rgb(200, 200, 200);
     word-break: break-word; 
+}
+.Highlighted{
+
+    position: relative;
+    left:5px;
+    background-color:rgb(70, 70, 70);
+}
+.Highlighted::before{
+    position: absolute;
+    display:inline-block;
+    content:'';
+    background-color:purple;
+    width:5px;
+    height:100%;
+    left:-5px;
+}
+.emoticon{
+    position:relative;
+    bottom: -10px;
 }
 
 .time {
