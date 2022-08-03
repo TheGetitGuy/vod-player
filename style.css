@@ -103,7 +103,7 @@ body {
     bottom:0;
     left:100%;
     background-color: rgb(150, 150, 150);
-    width:5em;
+    width:7em;
     height: 2em;
     display: none;
 }
@@ -115,8 +115,8 @@ body {
 .dropDownOptions:last-child{
     background-color: rgb(85, 85, 85);
     bottom:-100%;
-    border-bottom-left-radius:  10%;
-    border-bottom-right-radius:  10%;
+    border-bottom-left-radius:  10px;
+    border-bottom-right-radius:  10px;
 }
 .shareDropDown:hover > .dropDownOptions{
     display:block;
