@@ -63,7 +63,9 @@ const r = () => {
             const dividerElement = document.createElement("span");
             dividerElement.innerText = ":";
             dividerElement.classList.add("divider");
+
             const fragmentsToAppend = []
+
             for (fragment of comment.message.fragments) {
                 const fragmentElement = document.createElement("span");
                 fragmentElement.innerText = fragment.text;
@@ -76,7 +78,9 @@ const r = () => {
                     emoteElement.classList.add("emoticon")
                     fragmentElement.append(emoteElement)
                 }
-                if(comment.message.user_notice_params[`msg-id`] != undefined){
+
+                const commentMsgId = comment.message.user_notice_params;
+                if(commentMsgId['msg-id'] != undefined){
                     commentElement.classList.add('Highlighted')
                 }
                 fragmentsToAppend.push(fragmentElement)
