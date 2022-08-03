@@ -85,6 +85,42 @@ body {
     color: rgb(100, 100, 100);
     margin-right: .35em;
 }
+.shareDropDown{ 
+    position: relative;
+    background-color: rgb(85, 85, 85);
+    margin-inline-start: 10px;
+    width:4em;
+    height:2em;
+    text-align: center;
+    line-height: 2em;
+    z-index: 1022;
+    display: block;
+    border-radius: 5px;
+    border-style: none;
+}
+.dropDownOptions{
+    position: absolute;
+    bottom:0;
+    left:100%;
+    background-color: rgb(150, 150, 150);
+    width:5em;
+    height: 2em;
+    display: none;
+}
+.dropDownOptions:hover{
+    filter: brightness(1.5);
+    display: block;
+    cursor: pointer;
+}
+.dropDownOptions:last-child{
+    background-color: rgb(85, 85, 85);
+    bottom:-100%;
+    border-bottom-left-radius:  10%;
+    border-bottom-right-radius:  10%;
+}
+.shareDropDown:hover > .dropDownOptions{
+    display:block;
+}
 
 @media (max-aspect-ratio: 1/1) {
     body {

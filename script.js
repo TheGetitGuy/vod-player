@@ -27,6 +27,7 @@ const r = () => {
         history.replaceState(null, "", (url.origin + '?' + params.toString()))
     };
 
+
     const cap = 100; //The maximum comments
 
     let comments = [];
@@ -34,6 +35,29 @@ const r = () => {
     const scroll = () => {
         chatElement.scrollTop = chatElement.scrollHeight;
     };
+    
+    const copyUrl = () =>{
+        let urlWithoutTime  = document.URL.slice(0,document.URL.indexOf('&min'));
+        navigator.clipboard.writeText(urlWithoutTime)
+        
+    }
+    const copyUrlWithTime = () =>{
+        
+        navigator.clipboard.writeText(document.URL)
+    }
+
+    const shareButton = document.querySelector('.shareDropDown');
+    const shareButtonNoTime = document.createElement('div');
+    const shareButtonTime = document.createElement('div');
+        shareButtonNoTime.classList.add('dropDownOptions')
+        shareButtonNoTime.innerText = ('Share')
+        shareButtonTime.classList.add('dropDownOptions')
+        shareButtonTime.innerText = ('ShareTime')
+        shareButtonNoTime.addEventListener('click', copyUrl);
+        shareButtonTime.addEventListener('click', copyUrlWithTime);
+        shareButton.appendChild(shareButtonNoTime)
+        shareButton.appendChild(shareButtonTime)
+
 
     const renderChat = () => {
         chatElement.innerHTML = "";
