@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-    <video id="vod" controls></video>
+    <video id="vod" controls playsinline></video>
     <div>
         <div class="shareDropDown">
             Share
@@ -18,8 +18,11 @@
     </div>
     <div id="home">
         <form>
-            <input type="url" name="mp4" id="formMp4" placeholder="Video Url" required />
-            <input type="url" name="json" id="formJson" placeholder="JSON Url" required />
+            <input type="url" name="mp4" id="formMp4" placeholder="Video URL" required />
+            <input type="url" name="json" id="formJson" placeholder="JSON URL (optional)"  />
+            <input type="number" name="mins" id="formMins" placeholder="Minutes (optional)" />
+            <input type="number" name="secs" id="formSecs" placeholder="Seconds (optional)" />
+            <input type="hidden" name="autoplay" value="true" />
             <input type="submit" value="Watch" />
         </form>
     </div>

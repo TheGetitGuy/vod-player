@@ -5,10 +5,13 @@ const r = () => {
     const json = url.searchParams.get("json");
     const timeMins = url.searchParams.get("mins");
     const timeSecs = url.searchParams.get("secs");
+    const autoplay = url.searchParams.get("autoplay");
 
-    if (!mp4 || !json) {
+    if (!mp4) {
         return;
     }
+
+    const hasJSON = (json !== null && json !== "");
 
     const vodElement = document.getElementById("vod");
     const chatElement = document.getElementById("chat");
@@ -118,11 +121,19 @@ const r = () => {
     };
 
     vodElement.ontimeupdate = () => {
-        renderChat();
+        if (hasJSON) {
+            renderChat();
+        }
         changeUrlForTimeStamp(); // Update constantly
     };
     vodElement.onseeked = () => {
         changeUrlForTimeStamp();  // Update only when seeked, up to evan
+    }
+
+    vodElement.onloadeddata = () => {
+        if (autoplay) {
+            vodElement.play();
+        }
     }
 
     vodElement.src = mp4;
@@ -135,12 +146,14 @@ const r = () => {
         scroll();
     });
 
-    fetch(json).then((res) => {
-        res.json().then((data) => {
-            comments = data.comments;
-            renderChat();
+    if (hasJSON) {
+        fetch(json).then((res) => {
+            res.json().then((data) => {
+                comments = data.comments;
+                renderChat();
+            });
         });
-    });
+    }
 
     const home = document.getElementById("home");
     home.style = "display: none;"
