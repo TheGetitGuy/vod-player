@@ -52,9 +52,9 @@ const r = () => {
     const shareButtonNoTime = document.createElement('div');
     const shareButtonTime = document.createElement('div');
         shareButtonNoTime.classList.add('dropDownOptions')
-        shareButtonNoTime.innerText = ('Share')
+        shareButtonNoTime.innerText = ('No timestamp')
         shareButtonTime.classList.add('dropDownOptions')
-        shareButtonTime.innerText = ('ShareTime')
+        shareButtonTime.innerText = ('Current timestamp')
         shareButtonNoTime.addEventListener('click', copyUrl);
         shareButtonTime.addEventListener('click', copyUrlWithTime);
         shareButton.appendChild(shareButtonNoTime)
@@ -94,7 +94,6 @@ const r = () => {
 
             for (fragment of comment.message.fragments) {
                 const fragmentElement = document.createElement("span");
-                fragmentElement.innerText = fragment.text;
                 fragmentElement.classList.add("fragment");
                 if ("emoticon" in fragment) {
                     //build and append the Emotes
@@ -102,7 +101,10 @@ const r = () => {
                     emoteElement.src = (`https://static-cdn.jtvnw.net/emoticons/v1/${fragment.emoticon.emoticon_id}/1.0`)
                     emoteElement.alt = fragment.text
                     emoteElement.classList.add("emoticon")
-                    fragmentElement.append(emoteElement)
+                    fragmentElement.appendChild(emoteElement)
+                }
+                else {
+                    fragmentElement.innerText = fragment.text;
                 }
 
                 const commentMsgId = comment.message.user_notice_params;
@@ -114,7 +116,9 @@ const r = () => {
             commentElement.appendChild(timeElement);
             commentElement.appendChild(displayNameElement);
             commentElement.appendChild(dividerElement);
-            commentElement.appendChild(...fragmentsToAppend);
+            fragmentsToAppend.forEach((fragmentToAppend) => {
+                commentElement.appendChild(fragmentToAppend);
+            })
             chatElement.appendChild(commentElement);
         }
         scroll();
